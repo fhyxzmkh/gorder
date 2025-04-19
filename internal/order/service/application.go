@@ -5,6 +5,7 @@ import (
 	"github.com/fhyxzmkh/gorder/common/metrics"
 	"github.com/fhyxzmkh/gorder/order/adapters"
 	"github.com/fhyxzmkh/gorder/order/app"
+	"github.com/fhyxzmkh/gorder/order/app/command"
 	"github.com/fhyxzmkh/gorder/order/app/query"
 	"github.com/sirupsen/logrus"
 )
@@ -15,7 +16,10 @@ func NewApplication(ctx context.Context) app.Application {
 	client := metrics.TodoMetrics{}
 
 	return app.Application{
-		Commands: app.Commands{},
+		Commands: app.Commands{
+			CreateOrder: command.NewCreateOrderHandler(orderRepo, logger, client),
+			UpdateOrder: command.NewUpdateOrderHandler(orderRepo, logger, client),
+		},
 		Queries: app.Queries{
 			GetCustomerOrder: query.NewGetCustomerOrderHandler(orderRepo, logger, client),
 		},

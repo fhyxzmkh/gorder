@@ -264,7 +264,7 @@ func (x *CreateOrderRequest) GetItems() []*ItemWithQuantity {
 
 type GetOrdersRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	OrderId       string                 `protobuf:"bytes,1,opt,name=OrderId,proto3" json:"OrderId,omitempty"`
+	OrderId       string                 `protobuf:"bytes,1,opt,name=OrderID,proto3" json:"OrderID,omitempty"`
 	CustomerID    string                 `protobuf:"bytes,2,opt,name=CustomerID,proto3" json:"CustomerID,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
